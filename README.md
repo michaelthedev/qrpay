@@ -22,14 +22,12 @@
 <br />
 <div align="center">
   <a href="https://github.com/michael-arawole/qrpay">
-    <img src="https://demo.logad.net/qrpay/assets/img/qrpay-logo.png" alt="Logo" width="80" height="80">
+    <img src="https://demo.logad.net/qrpay/assets/img/qrpay-logo.png" alt="Logo" width="auto" height="200">
   </a>
 
   <h3 align="center">QrPay</h3>
 
   <p align="center">
-    
-    <br />
     <a href="https://demo.logad.net/qrpay">View Demo</a>
     ·
     <a href="https://github.com/michael-arawole/qrpay/issues">Report Bug</a>
@@ -130,10 +128,6 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Notyf](https://github.com/caroso1222/notyf)
 * [Qrcode.js](https://github.com/davidshimjs/qrcodejs)
 * [Qr Scanner](https://github.com/nimiq/qr-scanner)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
