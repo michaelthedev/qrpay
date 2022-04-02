@@ -1,0 +1,30 @@
+{
+    "version" : "1.0",
+    "lang" : "en",
+    "name": "QrPay",
+    "generated" : true,
+    "short_name": "QrPay",
+    "scope" : "https://demo.logad.net/qrpay",
+    "start_url": "https://demo.logad.net/qrpay",
+    "display": "fullscreen",
+    "background_color": "#eff6f9",
+    "theme_color": "#eff6f9",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "https://demo.logad.net/assets/img/qrpay-logo.png",
+            "sizes": "32x32 24x24 16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "https://demo.logad.net/assets/img/qrpay-logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "https://demo.logad.net/assets/img/qrpay-logo.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}

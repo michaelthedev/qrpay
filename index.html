@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!-- beautify ignore:start -->
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template-free">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <title>QRPay</title>
+
+        <!-- manifest meta -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="manifest" href="manifest.json" />
+
+        <meta name="description" content="" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="assets/img/qrpay-logo.png" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+        <!-- Icons. Uncomment required icon fonts -->
+        <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="assets/css/demo.css" />
+
+        <!-- Noty Plugin -->
+        <link rel="stylesheet" href="assets/vendor/libs/notyf/notyf.min.css">
+
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+        <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css" />
+
+        <!-- Helpers -->
+        <script src="assets/vendor/js/helpers.js"></script>
+
+        <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+        <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+        <script src="assets/js/config.js"></script>
+
+        <style type="text/css">
+            #userQrPayQrcode img {
+                margin: 0 auto;
+            }
+            .blur {
+                -webkit-filter: blur(5px);
+                -moz-filter: blur(5px);
+                -o-filter: blur(5px);
+                -ms-filter: blur(5px);
+                filter: blur(5px);
+            }
+            [page_id] .card {
+                box-shadow: none;
+                background: none;
+            }
+            .pages-row .card-body > p.mb-0 {
+                font-weight: bold;
+            }
+            .custom-option {
+                padding-left: 0;
+                border: 1px solid #d9dee3;
+                border-radius: .5rem;
+            }
+            .custom-option-basic .custom-option-content {
+                padding: 1em;
+                padding-left: 2.7em;
+            }
+            .custom-option .custom-option-content {
+                cursor: pointer;
+                width: 100%;
+            }
+            .custom-option-basic .custom-option-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: .25rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar layout-without-menu">
+            <div class="layout-container">
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Navbar -->
+                    <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                            <!-- Search -->
+                            <div class="navbar-nav align-items-center">
+                                <div class="nav-item d-flex align-items-center">
+                                    <i class="bx bx-search fs-4 lh-0"></i>
+                                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..." />
+                                </div>
+                            </div>
+                            <!-- /Search -->
+
+                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                <!-- User -->
+                                <li class="nav-item">
+                                    <a class="nav-link" target="_blank" href="https://github.com/michael-arawole/qrpay">
+                                        <div class="avatar">
+                                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt class="w-px-40 h-auto rounded-circle" />
+                                        </div>
+                                    </a>
+                                </li>
+                                <!--/ User -->
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- / Navbar -->
+
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <div class="row">
+                                <!-- Expense Overview -->
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header">
+                                            <h5 class="card-title">Balance Summary</h5>
+                                        </div>
+                                        <div class="card-body px-0 py-0">
+                                            <div class="d-flex p-4 pt-0">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <img src="assets/img/icons/unicons/wallet.png" alt="User" />
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Total Balance</small>
+                                                    <div class="d-flex align-items-center">
+                                                        <h6 class="mb-0 me-1"><lg lg-var="user.balanceFormatted">{{user.balanceFormatted}}</lg></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="gifCenter" style="display:none;">
+                                                <p class="text-danger fw-semibold text-center">You're broke</p>
+                                                <!-- <img src="assets/img/gif/broke-jerry.gif" class="w-100"> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ Expense Overview -->
+                                
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="card-info">
+                                                    <p class="card-text">Your UserID</p>
+                                                    <div class="d-flex align-items-end mb-2">
+                                                        <h4 class="card-title mb-0 me-2"><lg lg-var="user.QrPayUid">{{user.QrPayUid}}</lg></h4>
+                                                    </div>
+                                                    <small>Login & Transactions</small>
+                                                </div>
+                                                <div class="card-icon">
+                                                    <span class="badge bg-label-primary rounded p-2">
+                                                        <i class="bx bx-id-card bx-sm"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="card-info">
+                                                    <p class="card-text">Transactions</p>
+                                                    <div class="d-flex align-items-end mb-2">
+                                                        <h4 class="card-title mb-0 me-2"><lg lg-var="user.totalTransactions">{{user.totalTransactions}}</lg></h4>
+                                                        <!-- <small class="text-success">(+29%)</small> -->
+                                                    </div>
+                                                    <small>Total Transactions</small>
+                                                </div>
+                                                <div class="card-icon">
+                                                    <span class="badge bg-label-primary rounded p-2">
+                                                        <i class="bx bx-trending-up bx-sm"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        	<div class="col-12 mb-4" style="display: nonee;">
+                    		    <div class="card">
+                    		        <div class="d-flex align-items-end row">
+                    		            <div class="col-8">
+                    		                <div class="card-body">
+                    		                    <h6 class="card-title mb-1 text-nowrap">Congratulations <lg lg-var="user.name">{{user.name}}</lg></h6>
+                    		                    <small class="d-block mb-3 text-nowrap">You've received a demo balance</small>
+
+                    		                    <h5 class="card-title text-primary mb-1">₦50,000</h5>
+                    		                    <small class="d-block mb-3 text-muted"></small>
+
+                    		                    <a href="javascript:;" class="btn btn-sm btn-primary" page_id="paymentHistory">View history</a>
+                    		                </div>
+                    		            </div>
+                    		            <div class="col-4 pt-3 ps-0">
+                    		                <img src="assets/img/illustrations/prize-light.png" width="90" height="140" class="rounded-start" alt="View Sales" />
+                    		            </div>
+                    		        </div>
+                    		    </div>
+                        	</div>
+
+                            <!-- Cards -->
+                            <div class="row pages-row">
+                                <div class="col-12 col-lg-6 col-sm-6">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                            <div class="row align-items-center">
+                                                <a href="javascript:" class="col-auto mx-auto" page_id="sendMoney">
+                                                    <div class="card mb-3">
+                                                        <div class="card-body p-0">
+                                                            <figure class="mb-0">
+                                                                <img src="assets/img/cardImg/icons8-initiate-money-transfer-96.png" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <p class="mb-0 text-mutedd text-center">Send Money</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-6">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                            <div class="row align-items-center">
+                                                <a href="javascript:" class="col-auto mx-auto" page_id="receiveMoney">
+                                                    <div class="card mb-3">
+                                                        <div class="card-body p-0">
+                                                            <figure class="mb-0">
+                                                                <img src="assets/img/cardImg/icons8-request-money-96.png" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <p class="mb-0 text-mutedd text-center">Receive Money</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-6">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                            <div class="row align-items-center">
+                                                <a href="javascript:" class="col-auto mx-auto" page_id="paymentHistory">
+                                                    <div class="card mb-3">
+                                                        <div class="card-body p-0">
+                                                            <figure class="mb-0">
+                                                                <img src="assets/img/cardImg/icons8-payment-history-96.png" alt="" />
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <p class="mb-0 text-mutedd text-center">Payment History</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Content -->
+
+                        <!-- Footer -->
+                        <footer class="footer bg-light text-center">
+                            <div class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3">
+                                <div>
+                                    <a href="" target="_blank" class="footer-text fw-bolder">QRPay</a>
+                                    © Made by <a href="https://github.com/michael-arawole" target="_blank" class="footer-text fw-bolder">Michael Arawole</a>
+                                </div>
+                                <div>
+                                    <div class="dropdown dropup footer-link me-3">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Currency
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="javascript:void(0);">₦ Naira</a>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0)" id="logOut" class="btn btn-sm btn-outline-danger"><i class="bx bx-log-out-circle"></i> Logout</a>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- / Footer -->
+
+                        <div class="content-backdrop fade"></div>
+                    </div>
+                    <!-- Content wrapper -->
+                </div>
+                <!-- / Layout page -->
+            </div>
+        </div>
+        <!-- / Layout wrapper -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="backDropModalTitle">Login</h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <form id="loginForm">
+                        <div class="modal-body">
+                            <div>
+                                <label class="form-label">UserID</label>
+                                
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" placeholder="Enter your userID" name="QrPayUid" />
+                                    <span class="input-group-text">@QrPay</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-12 mb-2 text-end">
+                                <a href="javascript:" id="registerModalLink">Don't have a userid?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="registerModal" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Register</h5>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    </div>
+                    <form id="registerForm">
+                        <div class="modal-body">
+                            <div>
+                                <label class="form-label">Name</label>
+                                <div class="input-group input-group-merge">
+                                    <span class="input-group-text">
+                                        <i class="bx bx-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Name or Nickname" name="name" minlength="4" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-12 mb-2 text-end">
+                                <a href="javascript:" id="loginModalLink">Already have a userid?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="sendMoneyModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sendMoneyModalTitle">Send Money</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-0">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Send Money</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="sendMoneyForm">
+                                	<div class="mb-3">
+                                	    <label class="form-label">Send method:</label>
+                                	    <div class="row gy-3 text-nowrap">
+                                	        <div class="col">
+                                	            <div class="form-check custom-option custom-option-basic checked">
+                                	                <label class="form-check-label custom-option-content py-2" for="methodUserID">
+                                	                    <input name="sendMethod" class="form-check-input" type="radio" value="userid" id="methodUserID" checked="" />
+                                	                    <span class="custom-option-header pb-0">
+                                	                        <span>UserID</span>
+                                	                    </span>
+                                	                </label>
+                                	            </div>
+                                	        </div>
+                                	        <div class="col">
+                                	            <div class="form-check custom-option custom-option-basic">
+                                	                <label class="form-check-label custom-option-content py-2" for="methodQR">
+                                	                    <input name="sendMethod" class="form-check-input" type="radio" value="qr" id="methodQR" />
+                                	                    <span class="custom-option-header pb-0">
+                                	                        <span>QR</span>
+                                	                    </span>
+                                	                </label>
+                                	            </div>
+                                	        </div>
+                                	    </div>
+                                	</div>
+                                    <div class="mb-3 useridMethodDiv">
+                                        <label class="form-label">Recipient's ID</label>
+        	                            <div class="input-group input-group-merge">
+        	                                <input type="text" class="form-control" placeholder="Recipient's userID" name="recipientUid" id="recipientID"/>
+        	                                <span class="input-group-text">@QrPay</span>
+        	                            </div>
+                                        <div class="form-text">
+                                            UserID of the receiver
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 qrMethodDiv" style="display:none">
+                                        <label class="form-label">Recipient's ID</label>
+                                        <div class="input-group input-group-merge">
+                                            <input type="text" readonly class="form-control" name="recipientUid" placeholder="Recipient's userID" id="qrDecoded" disabled="">
+                                            <span class="input-group-text">@QrPay</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 qrMethodDiv" style="display:none;">
+                                        <label class="form-label">Scan QR Code</label>
+                                        <div class="col-12">
+                                            <div class="card text-center mb-3">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Camera required</h5>
+                                                    <p class="card-text">Enable Camera to scan QR Code for faster payment</p>
+                                                    <div id="qr-video-container" style="display:none">
+                                                        <video id="qr-video"></video>
+                                                    </div>
+                                                    <a href="javascript:void(0)" class="btn btn-primary" onclick="startQRScanner()"><i class="bx bx-camera" style="margin-top: -5px;"></i> Start Scan</a>
+                                                    <a href="javascript:void(0)" style="display:none" class="btn btn-primary" onclick="stopQRScanner()"><i class="bx bx-camera-off" style="margin-top: -5px;"></i> Stop Scan</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="defaultFormControlInput" class="form-label">Amount</label>
+        	                            <div class="input-group input-group-merge">
+        	                                <span class="input-group-text">₦</span>
+        	                                <input type="text" class="form-control" placeholder="Amount" name="amount" />
+        	                            </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Note (Optional)</label>
+                                        <textarea name="narration" class="form-control" placeholder="Optional note"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="receiveMoneyModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Receive Money</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-0">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <!-- <h5 class="mb-0">Receive Money</h5> -->
+                            </div>
+                            <div class="card-body">
+                                <!-- <form id="receiveMoneyForm">
+                                    <div class="mb-3">
+                                        <label for="defaultFormControlInput" class="form-label">Amount (Optional)</label>
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-text">₦</span>
+                                            <input type="text" class="form-control" placeholder="Amount" id="GenAmount" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Note (Optional)</label>
+                                        <textarea name="GenNarration" class="form-control" placeholder="Optional note"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Create QR</button>
+                                </form> -->
+                                <div id="userQrPayQrcode" class="my-3 text-center"></div>
+                                <p class="text-center">Scan Code from another device<br>Or use your User ID : <lg lg-var="user.QrPayUid">{{user.QrPayUid}}</lg></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="paymentHistoryModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Payment History</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-0">
+                        <div class="card h-100">
+                            <div class="card-header header-elements">
+                                <span class="me-2">Payment History</span>
+
+                                <div class="card-header-elements ms-auto">
+                                    <button type="button" class="btn btn-xs btn-primary" onclick="loadTransactions()"><span class="tf-icons bx bx-rotate-left scaleX-n1-rtl"></span> Refresh</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="p-0 m-0" id="TransactionsList">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <script src="assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="assets/vendor/libs/popper/popper.js"></script>
+        <script src="assets/vendor/js/bootstrap.js"></script>
+        <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+        <!-- Axios for http requests. Just edit ajax_request function in assets/js/custom.js to axios instead of jquery
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+
+        <script src="assets/vendor/js/menu.js"></script>
+        <!-- endbuild -->
+
+        <!-- QR Code generator -->
+        <script src="assets/vendor/js/qrcodeGenerator.min.js"></script>
+        <!-- Notyf JS -->
+        <script src="assets/vendor/libs/notyf/notyf.min.js"></script>
+
+        <!-- Main JS -->
+        <script src="assets/js/main.js"></script>
+
+        <!-- Page JS -->
+        <script src="assets/js/custom.js"></script>
+
+        <script type="module">
+            import QrScanner from "./assets/vendor/js/qr-scanner.min.js";
+            const video = document.getElementById('qr-video');
+            const videoContainer = document.getElementById('qr-video-container');
+            const camQrResult = document.getElementById('cam-qr-result');
+            function setResult(result) {
+                stopQRScanner();
+                const decodedQr = JSON.parse(result.data);
+                $("#qrDecoded").val(decodedQr.QrPayUid);
+            }
+            // ####### Web Cam Scanning #######
+            const scanner = new QrScanner(video, result => setResult(result), {
+                onDecodeError: error => {
+                },
+                highlightScanRegion: true,
+                highlightCodeOutline: true,
+            });
+            // for debugging
+            window.scanner = scanner;
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                checkLogin();
+                // Login Form
+                $("#loginForm").ajaxSubmit({
+                    url : "api/login",
+                    callback_function : function(data) {
+                        localStorage.setItem('QrPayUid', data.data.QrPayUid);
+                        checkLogin();
+                    }
+                });
+
+                // Register Form
+                $("#registerForm").ajaxSubmit({
+                    url : "api/register",
+                    callback_function : function(data) {
+                        localStorage.setItem('QrPayUid', data.data.QrPayUid);
+                        window.location.reload(true);
+                    }
+                });
+
+                // Login, registration modal
+                $("#registerModalLink").click(function(event) {
+                    event.preventDefault();
+                    $("#loginModal").modal('hide');
+                    $("#registerModal").modal('show');
+                });
+                $("#loginModalLink").click(function(event) {
+                    event.preventDefault();
+                    $("#registerModal").modal('hide');
+                    $("#loginModal").modal('show');
+                });
+
+                $("#logOut").click(function(event) {
+                    event.preventDefault();
+                    localStorage.removeItem('QrPayUid');
+                    checkLogin();
+                });
+
+                // Send Money Form
+                $("#sendMoneyForm").ajaxSubmit({
+                    url : "api/send-money",
+                    append : {
+                        QrPayUid : localStorage.getItem('QrPayUid')
+                    },
+                    callback_function : function(data) {
+                        populateUserData();
+                        $(this).trigger('clear');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
