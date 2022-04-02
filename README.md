@@ -143,5 +143,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-shield]: https://img.shields.io/github/license/michael-arawole/qrpay.svg?style=for-the-badge
 [license-url]: https://github.com/michael-arawole/qrpay/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: linkedin.com/in/michaelarawole/
+[linkedin-url]: https://linkedin.com/in/michaelarawole/
 [product-screenshot]: screenshot.jpg
