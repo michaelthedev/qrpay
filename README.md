@@ -50,6 +50,9 @@ Very simple
 * Send money by entering the receipients user id or scanning their code
 
 The projects includes the Postman API collection too
+
+* [Postman Documentation](https://documenter.getpostman.com/view/10657913/UVyswb74)
+* [API collection](https://www.getpostman.com/collections/ba63b1a1b9c0126fa56d)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
