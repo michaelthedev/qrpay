@@ -1,0 +1,22 @@
+{
+  "name": "qrpay",
+  "version": "1.0.0",
+  "description": "Send money to any one with QR pay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michael-arawole/qrpay.git"
+  },
+  "author": "Michael Logad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michael-arawole/qrpay/issues"
+  },
+  "homepage": "https://github.com/yhoungdev/qrpay#readme",
+  "dependencies": {
+    "workbox-cli": "^6.5.2"
+  }
+}

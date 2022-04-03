@@ -9,8 +9,9 @@
         <!-- manifest meta -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="manifest.json">
 
+        <meta name="theme-color" content="#696cff">
         <meta name="description" content="" />
 
         <!-- Favicon -->
@@ -81,6 +82,19 @@
                 padding-bottom: .25rem;
             }
         </style>
+        <!-- initialize workbox -->
+        <script>
+                       
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+            }
+        
+
+        </script>
     </head>
 
     <body>
