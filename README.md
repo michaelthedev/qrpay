@@ -44,7 +44,7 @@
 
 Very simple
 * You register, the system generates a unique ID
-* You login with you unique ID
+* You login with your unique ID
 * Your details are fetched from the API and updated at an interval
 * Use your userID to receive money or use your QR code
 * Send money by entering the receipients user id or scanning their code
@@ -125,7 +125,7 @@ Michael Arawole - [@MichaelArawole](https://twitter.com/michaelarawole) - michae
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Special thanks to these guys for their amazing tool
 
 * [Icons8](https://icons8.com)
 * [Notyf](https://github.com/caroso1222/notyf)
