@@ -136,7 +136,7 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/michael-arawole/qrpay.svg?style=for-the-badge
-[contributors-url]: https://https://github.com/michael-arawole/qrpay/graphs/contributors
+[contributors-url]: https://github.com/michael-arawole/qrpay/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/michael-arawole/qrpay.svg?style=for-the-badge
 [forks-url]: https://github.com/michael-arawole/qrpay/network/members
 [stars-shield]: https://img.shields.io/github/stars/michael-arawole/qrpay.svg?style=for-the-badge
