@@ -1,6 +1,6 @@
 {
-    "name": "Qr PAy",
-    "short_name": "Qr Pay",
+    "name": "QrPay",
+    "short_name": "QrPay",
     "theme_color": "#696cff",
     "description": "Send money to anybody with QR pay",
     "background_color": "#fff",
