@@ -5,6 +5,7 @@
 // | @author_email  : logadscripts@gmail.com
 // | @date          : 22 Mar, 2022 09:38PM
 // +------------------------------------------------------------------------+
+// | Copyright (c) 2022 Logad Networks. All rights reserved.
 // +------------------------------------------------------------------------+
 
 class DB {
@@ -226,7 +227,7 @@ class Users extends Transactions {
 	}
 
 	## Credit User then debit another user ##
-	protected function debitUserThenCreditAnotherUser($debitUserId, $creditUserId, $debitAmount, $creditAmount = false) {
+	protected static function debitUserThenCreditAnotherUser($debitUserId, $creditUserId, $debitAmount, $creditAmount = false) {
 		$response['status'] = false;
 		$response['msg'] = QrPay::$defaultErrorMsg;
 
