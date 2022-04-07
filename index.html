@@ -7,8 +7,10 @@
         <title>QRPay</title>
 
         <!-- manifest meta -->
+        <meta name="mobile-web-app-capable" content="yes" />        
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="QrPay" />
         <link rel="manifest" href="manifest.json">
 
         <meta name="theme-color" content="#696cff">
@@ -36,6 +38,8 @@
         <!-- Vendors CSS -->
         <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
         <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/css/addtohomescreen.css">
 
         <!-- Helpers -->
         <script src="assets/vendor/js/helpers.js"></script>
@@ -89,7 +93,7 @@
             if ('serviceWorker' in navigator) {
             // Use the window load event to keep the page load performant
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
+                navigator.serviceWorker.register('./sw.js?1');
             });
             }
         
@@ -445,7 +449,8 @@
                                                     <h5 class="card-title">Camera required</h5>
                                                     <p class="card-text">Enable Camera to scan QR Code for faster payment</p>
                                                     <div id="qr-video-container" style="display:none">
-                                                        <video id="qr-video"></video>
+                                                        <center>
+                                                        <video id="qr-video"></video></center>
                                                     </div>
                                                     <a href="javascript:void(0)" class="btn btn-primary" onclick="startQRScanner()"><i class="bx bx-camera" style="margin-top: -5px;"></i> Start Scan</a>
                                                     <a href="javascript:void(0)" style="display:none" class="btn btn-primary" onclick="stopQRScanner()"><i class="bx bx-camera-off" style="margin-top: -5px;"></i> Stop Scan</a>
@@ -557,6 +562,8 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
+        
+        <script src="assets/js/addtohomescreen.min.js"></script>
 
         <!-- Page JS -->
         <script src="assets/js/custom.js"></script>
@@ -578,12 +585,20 @@
                 highlightScanRegion: true,
                 highlightCodeOutline: true,
             });
+            var device_height = window.screen.height - 70;
+            var device_width = window.screen.width - 70;
+            // set height and width of video
+            document.getElementById('qr-video').style.width = device_width+'px';
+            document.getElementById('qr-video').style.height = device_height+'px';
+            
             // for debugging
             window.scanner = scanner;
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
                 checkLogin();
+                
+                addToHomescreen();
                 // Login Form
                 $("#loginForm").ajaxSubmit({
                     url : "api/login",
