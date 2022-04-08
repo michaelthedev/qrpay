@@ -82,6 +82,7 @@ _How to install._
    $dbuser = "<DATABASE-USERNAME>";
    ```
    
+3. Upload qrpay.sql to your database
 4. Save and open the url in your browser
 
 <p align="right">(<a href="#top">back to top</a>)</p>
