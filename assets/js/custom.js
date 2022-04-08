@@ -105,7 +105,6 @@ function populateUserData() {
                     var split = val_key.split(".");
                     $(this).text(user_data[split[0]][split[1]]);
                 });
-                generateQrCode();
             }
         }
     })
@@ -133,6 +132,7 @@ function checkLogin() {
         $("#loginModal").modal('hide');
         $("div.layout-content-navbar.layout-without-menu").removeClass('blur');
         populateUserData();
+	generateQrCode();
         // Set interval to update user balance and transactions count every 30 seconds
         setInterval(populateUserData, 30000);
     }
