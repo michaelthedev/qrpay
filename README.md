@@ -87,6 +87,9 @@ _How to install._
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Next Update
+1. Adding personal payment link
+2. Developer API system (later update)
 
 <!-- CONTRIBUTING -->
 ## Contributing
