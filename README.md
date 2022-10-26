@@ -120,7 +120,7 @@ Distributed under the MIT License.
 
 <!-- CONTACT -->
 ## Contact
-Michael Arawole - [@MichaelArawole](https://twitter.com/michaelarawole) - michael@logad.net
+Michael Arawole - [@MichaelArawole](https://twitter.com/michaelarawole) - mycodemichael@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
