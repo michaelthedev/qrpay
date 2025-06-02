@@ -21,7 +21,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/michael-arawole/qrpay">
+  <a href="https://github.com/michaelthedev/qrpay">
     <img src="https://demo.logad.net/qrpay/assets/img/qrpay-logo.png" alt="Logo" width="auto" height="200">
   </a>
 
@@ -30,9 +30,9 @@
   <p align="center">
     <a href="https://demo.logad.net/qrpay">View Demo</a>
     ·
-    <a href="https://github.com/michael-arawole/qrpay/issues">Report Bug</a>
+    <a href="https://github.com/michaelthedev/qrpay/issues">Report Bug</a>
     ·
-    <a href="https://github.com/michael-arawole/qrpay/issues">Request Feature</a>
+    <a href="https://github.com/michaelthedev/qrpay/issues">Request Feature</a>
   </p>
 </div>
 
@@ -139,16 +139,16 @@ Special thanks to these guys for their amazing tool
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/michael-arawole/qrpay.svg?style=for-the-badge
-[contributors-url]: https://github.com/michael-arawole/qrpay/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/michael-arawole/qrpay.svg?style=for-the-badge
-[forks-url]: https://github.com/michael-arawole/qrpay/network/members
-[stars-shield]: https://img.shields.io/github/stars/michael-arawole/qrpay.svg?style=for-the-badge
-[stars-url]: https://github.com/michael-arawole/qrpay/stargazers
-[issues-shield]: https://img.shields.io/github/issues/michael-arawole/qrpay.svg?style=for-the-badge
-[issues-url]: https://github.com/michael-arawole/qrpay/issues
-[license-shield]: https://img.shields.io/github/license/michael-arawole/qrpay.svg?style=for-the-badge
-[license-url]: https://github.com/michael-arawole/qrpay/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/michaelthedev/qrpay.svg?style=for-the-badge
+[contributors-url]: https://github.com/michaelthedev/qrpay/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/michaelthedev/qrpay.svg?style=for-the-badge
+[forks-url]: https://github.com/michaelthedev/qrpay/network/members
+[stars-shield]: https://img.shields.io/github/stars/michaelthedev/qrpay.svg?style=for-the-badge
+[stars-url]: https://github.com/michaelthedev/qrpay/stargazers
+[issues-shield]: https://img.shields.io/github/issues/michaelthedev/qrpay.svg?style=for-the-badge
+[issues-url]: https://github.com/michaelthedev/qrpay/issues
+[license-shield]: https://img.shields.io/github/license/michaelthedev/qrpay.svg?style=for-the-badge
+[license-url]: https://github.com/michaelthedev/qrpay/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/michaelarawole/
 [product-screenshot]: screenshot.jpg
