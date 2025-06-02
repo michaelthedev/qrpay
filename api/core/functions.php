@@ -194,7 +194,7 @@ class Transactions extends QrPay {
 				$obj->amountFormatted = QrPay::amountFormat($obj->amount, true);
 				$obj->dateFormatted = QrPay::dateFormat($obj->date);
 				$obj->timeFormatted = QrPay::dateFormat($obj->date, 'h:ia');
-				$obj->typeText = strtoupper(str_replace(array("-", "_"), null, $obj->type));
+				$obj->typeText = strtoupper(str_replace(array("-", "_"), '', $obj->type));
 				if ($user_id == $obj->receiverId) {
 					$obj->transType = "credit";
 				}
@@ -282,7 +282,7 @@ class Users extends Transactions {
 		$response['msg'] = QrPay::$defaultErrorMsg;
 
 		// Create UID
-		$nameFormatted = trim(str_replace(" ", null, $data->name));
+		$nameFormatted = trim(str_replace(" ", '', $data->name));
 		$uid = strtoupper(substr($nameFormatted, 0, 2).substr($nameFormatted, -2).date("y").QrPay::GenerateKey(4, 4));
 		$insert = DB::RunQuery([
 			"query" => "INSERT INTO users (name, uid, balance, date) VALUES (?, ?, ?, ?)",
