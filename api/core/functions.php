@@ -16,8 +16,7 @@ class DB {
 			$pdo = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname . ';charset=utf8', $dbuser, $dbpass);
 			return $pdo;
 		} catch (PDOException $exception) {
-			echo $exception->getMessage();
-			exit('Failed to connect to database!');
+			exit('Failed to connect to database! '. $exception->getMessage());
 		}
 		return false;
 	}
